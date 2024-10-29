@@ -1,5 +1,17 @@
+---
+import AppStore from "../icons/App-store.astro"
+import GooglePlay from "../icons/Google-play.astro"
+---
 
-<div class="flex flex-col text-center justify-center align-middle h-96 gap-6">
-    <h1 class="text-8xl max-sm:text-6xl">Dejate Contagiar <br> Por El <span>Rock.</span></h1>
-    <p class="font-light text-xl">Descubre, compra y disfruta de tus conciertos favoritos con RockTicket.</p>
+
+<div class="z-10 flex flex-col relative text-center justify-center align-middle h-[500px] gap-6">
+    <h1 class="font-geist font-bold text-8xl max-sm:text-5xl z-10">Dejate Contagiar <br> Por El <span class="text-secondary">Rock.</span></h1>
+    <p class="font-geist font-light text-xl z-10">Descubre, compra y disfruta de tus conciertos favoritos con RockTicket.</p>
+</div >
+<div class="z-0 w-full h-full max-md:h-[600px] max-md:overflow-hidden">
+    <img class="w-full h-full object-cover" src="/public/iPhone-15-Pro-Showcase-Screen-Scene-psd-MockupLLKLL 2.svg" alt="Imagen mockup start">
+</div>
+<div class="z-20 relative flex flex-row justify-center pl-[40%] gap-3 top-[-300px] max-sm:justify-center max-sm:pl-[0] max-sm:top-[-150px]">
+    <AppStore></AppStore>
+    <GooglePlay></GooglePlay>
 </div>
