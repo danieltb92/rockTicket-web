@@ -1,0 +1,49 @@
+  ---
+export interface CardProps {
+  title: string;
+  paragraph: string;
+  imageSrc: string;
+  bgColor: string;
+  direction: 'left' | 'right' | 'top';
+}
+
+// Proporcionar valores predeterminados si no se pasan props
+const title = Astro.props.title || 'Explora Eventos';
+const paragraph = Astro.props.paragraph || 'Descubre eventos de Rock en tu ciudad y encuentra los mejores festivales y conciertos personalizados según tus gustos.';
+const imageSrc = Astro.props.imageSrc || '../public/images/features-img/Home-Sony Xperia 1 II.svg'; // Cambia esta ruta por una imagen real
+const bgColor = Astro.props.bgColor || 'linear-gradient(180deg, #93C9C7 0%, #486362 100%)';
+const direction = Astro.props.direction || 'right';
+---
+
+<article
+  class={`flex ${
+    direction === 'right'
+      ? 'flex-row-reverse'
+      : direction === 'left'
+      ? 'flex-row'
+      : 'flex-col'
+  } max-md:flex-col justify-center items-center py-32 gap-10 w-full max-md:gap-80 max-sm:gap-40 mx-4`}
+>
+  <div class="flex flex-col justify-center ">
+    <h3 class="flex justify-center font-geist font-bold text-5xl max-md:text-3xl ">
+      {title}
+    </h3>
+    <p class="flex font-geist font-normal text-base leading-[120%] max-w-[356px]">
+      {paragraph}
+    </p>
+  </div>
+  <div class="w-[590px] h-[600px] flex justify-center items-center max-sm:w-full relative">
+    <div
+      class="w-full h-full rounded-[40px] max-md:w-full relative "
+      style={`background: ${bgColor}`}
+    ></div>
+    <img src={imageSrc} alt={title} class="max-sm:w-[80%] absolute object-contain bottom-[-50px]" />
+  </div>
+  <!-- <div class="w-[590px] h-[600px] flex justify-center items-center relative">
+    <div
+      class="w-full h-full relative "
+      style={`background: ${bgColor}`}
+    ></div>
+    <img src={imageSrc} alt={title} class=" max-sm:w-[40%] absolute object-contain bottom-[-50px]" />
+  </div> -->
+</article>

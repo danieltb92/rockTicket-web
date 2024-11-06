@@ -4,23 +4,28 @@ import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Video from '../components/Section-video.astro';
+import SliderWords from '../components/Section-slider-words.astro';
+import Features from '../components/Section-features.astro';
+
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="RockTicket.">
 	<main>
 		<Header></Header>
-		<Hero></Hero>
+		<Hero></Hero>		
+		<SliderWords></SliderWords>
 		<Video></Video>
-
+		<Features></Features>
 	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 1rem;
+		margin: 0 auto;
+		padding: 0rem;
 		width: 1920px;
-		max-width: calc(100% - 2rem);
+		/* max-width: calc(100% - 2rem); */
+		max-width: calc(100%);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;

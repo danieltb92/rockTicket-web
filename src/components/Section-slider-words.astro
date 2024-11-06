@@ -1,0 +1,60 @@
+---
+const palabras = [
+  'Rock',
+  'Música',
+  'Conciertos',
+  'Festivales',
+  'Bandas',
+  'Escenario',
+  'Guitarras',
+  'Baterías',
+];
+
+const wordsUpper = palabras.map(palabra => palabra.toUpperCase());
+
+---
+
+<style>
+  .slider {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .slider-track {
+    display: flex;
+    animation: slide 25s linear infinite;
+  }
+
+  .slider-item {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 3rem;
+    color: white;
+    font-weight: 500;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+<div class="relative w-full bg-black overflow-hidden py-10">
+  <div class="slider">
+    <!-- Slider track con palabras -->
+    <div class="slider-track">
+      {wordsUpper.map(palabra => (
+        <span class="slider-item">{palabra}</span>
+      ))}
+      {wordsUpper.map(palabra => (
+        <!-- Repetimos las palabras para crear un efecto continuo -->
+        <span class="slider-item">{palabra}</span>
+      ))}
+    </div>
+  </div>
+</div>
