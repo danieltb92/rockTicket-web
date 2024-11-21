@@ -6,6 +6,10 @@ import Hero from '../components/Hero.astro';
 import Video from '../components/Section-video.astro';
 import SliderWords from '../components/Section-slider-words.astro';
 import Features from '../components/Section-features.astro';
+import CTA from '../components/Section-CTA.astro';
+import Carousel from '../components/Section-carousel.astro';
+import Footer from '../components/Footer.astro';
+
 
 ---
 
@@ -16,10 +20,24 @@ import Features from '../components/Section-features.astro';
 		<SliderWords></SliderWords>
 		<Video></Video>
 		<Features></Features>
+		<CTA></CTA>
+		<Carousel/>
+		<Footer/>
 	</main>
 </Layout>
 
 <style>
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+	@layer base {
+		h1, h2, h3 {
+			@apply font-geist
+		}
+	}
+
 	main {
 		margin: 0 auto;
 		padding: 0rem;
@@ -45,6 +63,9 @@ import Features from '../components/Section-features.astro';
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
+	}
+	h1,h2,h3{
+		font-family:Geist, Verdana, Geneva, Tahoma, sans-serif;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);

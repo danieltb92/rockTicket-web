@@ -21,6 +21,9 @@ export default {
 				'nonary': '#9e9e9e',
 				'decenary': '#aeaeae',
 			},
+			screens: {
+				'md': '769px',
+			},
 		},
 	},
 	plugins: [],

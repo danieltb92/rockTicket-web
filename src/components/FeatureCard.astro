@@ -22,28 +22,22 @@ const direction = Astro.props.direction || 'right';
       : direction === 'left'
       ? 'flex-row'
       : 'flex-col'
-  } max-md:flex-col justify-center items-center py-32 gap-10 w-full max-md:gap-80 max-sm:gap-40 mx-4`}
+  } max-md:flex-col justify-center py-32 w-full max-md:gap-80 px-4 gap-4`}
 >
-  <div class="flex flex-col justify-center ">
+  <div class="flex flex-col justify-center items-center gap-2">
     <h3 class="flex justify-center font-geist font-bold text-5xl max-md:text-3xl ">
       {title}
     </h3>
-    <p class="flex font-geist font-normal text-base leading-[120%] max-w-[356px]">
+    <p class="flex font-geist font-normal text-base leading-[120%] max-w-[256px] min-w-[350px]">
       {paragraph}
     </p>
   </div>
-  <div class="w-[590px] h-[600px] flex justify-center items-center max-sm:w-full relative">
+  <div class="w-[590px] h-[600px] flex justify-center items-center max-sm:w-full max-sm:h-[400px]  relative">
     <div
-      class="w-full h-full rounded-[40px] max-md:w-full relative "
+      class="w-full h-full rounded-[40px] max-md:w-full relative bottom-[-60px]"
       style={`background: ${bgColor}`}
     ></div>
     <img src={imageSrc} alt={title} class="max-sm:w-[80%] absolute object-contain bottom-[-50px]" />
   </div>
-  <!-- <div class="w-[590px] h-[600px] flex justify-center items-center relative">
-    <div
-      class="w-full h-full relative "
-      style={`background: ${bgColor}`}
-    ></div>
-    <img src={imageSrc} alt={title} class=" max-sm:w-[40%] absolute object-contain bottom-[-50px]" />
-  </div> -->
+
 </article>
