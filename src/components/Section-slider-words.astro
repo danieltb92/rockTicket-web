@@ -14,47 +14,55 @@ const wordsUpper = palabras.map(palabra => palabra.toUpperCase());
 
 ---
 
+
+<div class="relative overflow-hidden w-full h-16 bg-black">
+  <!-- // Contenedor que se desliza -->
+  <div class="flex animate-marquee whitespace-nowrap">
+    {wordsUpper.map((word, index) => (
+      <span
+        class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0"
+      >
+        {word}
+      </span>
+    ))}
+    {wordsUpper.map((word, index) => (
+      <span
+        class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0"
+      >
+        {word}
+      </span>
+    ))}
+    {wordsUpper.map((word, index) => (
+      <span
+        class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0"
+      >
+        {word}
+      </span>
+    ))}
+  </div>
+</div>
+
 <style>
-  .slider {
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-  }
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-  .slider-track {
-    display: flex;
-    animation: slide 25s linear infinite;
-  }
-
-  .slider-item {
-    display: inline-block;
-    padding: 0 2rem;
-    font-size: 3rem;
-    color: white;
-    font-weight: 500;
-  }
-
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
+  @layer utilities {
+    @keyframes marquee {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-33.333%); /* Mueve un tercio por repetición */
+      }
     }
-    100% {
-      transform: translateX(-50%);
+
+    .animate-marquee {
+      animation: marquee 25s linear infinite; /* Ajusta duración según preferencia */
+      width: max-content; /* Se asegura de que el contenido ocupe todo su tamaño */
     }
   }
 </style>
 
-<div class="relative w-full bg-black overflow-hidden py-10">
-  <div class="slider">
-    <!-- Slider track con palabras -->
-    <div class="slider-track">
-      {wordsUpper.map(palabra => (
-        <span class="slider-item">{palabra}</span>
-      ))}
-      {wordsUpper.map(palabra => (
-        <!-- Repetimos las palabras para crear un efecto continuo -->
-        <span class="slider-item">{palabra}</span>
-      ))}
-    </div>
-  </div>
-</div>
+
+
