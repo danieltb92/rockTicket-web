@@ -1,6 +1,9 @@
 ---
 import Card from "../components/FeatureCard.astro";
-import imgFeature1 from "../assets/images/features-img/Home-SonyXperia1II.svg"
+import imgFeature1 from "../assets/images/features-img/Home-SonyXperia1II.svg";
+import imgFeature2 from "../assets/images/features-img/Mockup-Tickets-SonyXperia1II.svg";
+import imgFeature3 from "../assets/images/features-img/Mockup-Notifications-SonyXperia1II.svg";
+
 ---
 
 <section
@@ -28,14 +31,14 @@ import imgFeature1 from "../assets/images/features-img/Home-SonyXperia1II.svg"
       title="Compra de Tickets en Un Clic"
       direction="left"
       paragraph="Consigue tus entradas rápidamente con nuestro sistema de compra sencillo y seguro, sin largas esperas."
-      imageSrc="public/images/features-img/Home-Sony Xperia 1 II.svg"
+      imageSrc={imgFeature2.src}
       bgColor="linear-gradient(180deg, #57578A 0%, #171724 100%)"
     />
     <Card
       title="Notificaciones Personalizadas"
       direction="right"
       paragraph="No te pierdas ninguna oportunidad. Recibe alertas de nuevos eventos, preventas y promociones especiales."
-      imageSrc="public/images/features-img/Home-Sony Xperia 1 II.svg"
+      imageSrc={imgFeature3.src}
       bgColor="linear-gradient(180deg, #666 0%, #CCC 100%)"
     />
   </div>
