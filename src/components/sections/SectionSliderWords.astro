@@ -11,31 +11,22 @@ const palabras = [
 ];
 
 const wordsUpper = palabras.map(palabra => palabra.toUpperCase());
-
 ---
 
-
 <div class="relative overflow-hidden w-full h-16 bg-black">
-  <!-- // Contenedor que se desliza -->
   <div class="flex animate-marquee whitespace-nowrap">
-    {wordsUpper.map((word, index) => (
-      <span
-        class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0"
-      >
+    {wordsUpper.map((word) => (
+      <span class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0">
         {word}
       </span>
     ))}
-    {wordsUpper.map((word, index) => (
-      <span
-        class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0"
-      >
+    {wordsUpper.map((word) => (
+      <span class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0">
         {word}
       </span>
     ))}
-    {wordsUpper.map((word, index) => (
-      <span
-        class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0"
-      >
+    {wordsUpper.map((word) => (
+      <span class="text-gray-400 text-3xl font-semibold px-6 flex-shrink-0">
         {word}
       </span>
     ))}
@@ -53,16 +44,13 @@ const wordsUpper = palabras.map(palabra => palabra.toUpperCase());
         transform: translateX(0%);
       }
       100% {
-        transform: translateX(-33.333%); /* Mueve un tercio por repetición */
+        transform: translateX(-33.333%);
       }
     }
 
     .animate-marquee {
-      animation: marquee 25s linear infinite; /* Ajusta duración según preferencia */
-      width: max-content; /* Se asegura de que el contenido ocupe todo su tamaño */
+      animation: marquee 25s linear infinite;
+      width: max-content;
     }
   }
 </style>
-
-
-

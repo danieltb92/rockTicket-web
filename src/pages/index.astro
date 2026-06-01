@@ -1,33 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Video from '../components/Section-video.astro';
-import SliderWords from '../components/Section-slider-words.astro';
-import Features from '../components/Section-features.astro';
-import CTA from '../components/Section-CTA.astro';
-import Carousel from '../components/Section-carousel.astro';
-import Footer from '../components/Footer.astro';
-
-
+import Layout from '@layouts/Layout.astro';
+import Header from '@components/layout/Header.astro';
+import Hero from '@components/sections/Hero.astro';
+import SectionVideo from '@components/sections/SectionVideo.astro';
+import SectionSliderWords from '@components/sections/SectionSliderWords.astro';
+import SectionFeatures from '@components/sections/SectionFeatures.astro';
+import SectionCTA from '@components/sections/SectionCTA.astro';
+import SectionCarousel from '@components/sections/SectionCarousel.astro';
+import Footer from '@components/layout/Footer.astro';
 ---
 
 <Layout title="RockTicket.">
 	<main>
-		<Header></Header>
-		<Hero></Hero>		
-		<SliderWords></SliderWords>
-		<Video></Video>
-		<Features></Features>
-		<CTA></CTA>
-		<Carousel/>
-		<Footer/>
+		<Header />
+		<Hero />
+		<SectionSliderWords />
+		<SectionVideo />
+		<SectionFeatures />
+		<SectionCTA />
+		<SectionCarousel />
+		<Footer />
 	</main>
 </Layout>
 
 <style>
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -42,20 +38,10 @@ import Footer from '../components/Footer.astro';
 		margin: 0 auto;
 		padding: 0rem;
 		width: 1920px;
-		/* max-width: calc(100% - 2rem); */
 		max-width: calc(100%);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
 	}
 	h1 {
 		font-size: 4rem;
@@ -66,36 +52,5 @@ import Footer from '../components/Footer.astro';
 	}
 	h1,h2,h3{
 		font-family:Geist, Verdana, Geneva, Tahoma, sans-serif;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
 	}
 </style>

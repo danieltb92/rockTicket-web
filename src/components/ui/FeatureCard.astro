@@ -7,10 +7,9 @@ export interface CardProps {
   direction: 'left' | 'right' | 'top';
 }
 
-// Proporcionar valores predeterminados si no se pasan props
 const title = Astro.props.title || 'Explora Eventos';
 const paragraph = Astro.props.paragraph || 'Descubre eventos de Rock en tu ciudad y encuentra los mejores festivales y conciertos personalizados según tus gustos.';
-const imageSrc = Astro.props.imageSrc || '../public/images/features-img/Home-Sony Xperia 1 II.svg'; // Cambia esta ruta por una imagen real
+const imageSrc = Astro.props.imageSrc || '../public/images/features-img/Home-Sony Xperia 1 II.svg';
 const bgColor = Astro.props.bgColor || 'linear-gradient(180deg, #93C9C7 0%, #486362 100%)';
 const direction = Astro.props.direction || 'right';
 ---
