@@ -10,47 +10,15 @@ import SectionCarousel from '@components/sections/SectionCarousel.astro';
 import Footer from '@components/layout/Footer.astro';
 ---
 
-<Layout title="RockTicket.">
-	<main>
-		<Header />
-		<Hero />
-		<SectionSliderWords />
-		<SectionVideo />
-		<SectionFeatures />
-		<SectionCTA />
-		<SectionCarousel />
-		<Footer />
-	</main>
+<Layout title="RockTicket — Entradas para conciertos de rock">
+  <Header />
+  <main id="contenido" class="w-full overflow-x-hidden">
+    <Hero />
+    <SectionSliderWords />
+    <SectionVideo />
+    <SectionFeatures />
+    <SectionCTA />
+    <SectionCarousel />
+  </main>
+  <Footer />
 </Layout>
-
-<style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-	@layer base {
-		h1, h2, h3 {
-			@apply font-geist
-		}
-	}
-
-	main {
-		margin: 0 auto;
-		padding: 0rem;
-		width: 1920px;
-		max-width: calc(100%);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	h1,h2,h3{
-		font-family:Geist, Verdana, Geneva, Tahoma, sans-serif;
-	}
-</style>

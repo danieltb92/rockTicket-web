@@ -1,23 +1,39 @@
 ---
-import Button from "../ui/Button.astro";
-import imgCTA from "@assets/images/sectionCTA/mockup-sectionCTA.svg";
+import Button from '../ui/Button.astro';
+import imgCTA from '@assets/images/sectionCTA/mockup-sectionCTA.svg';
 ---
 
 <section
-  class="flex justify-end items-center flex-col w-full h-[800px] max-lg:h-[700px] max-md:h-[600px] bg-white p-20 overflow-hidden relative max-md:px-10"
+  id="cta"
+  class="relative flex min-h-[640px] w-full flex-col items-center justify-end overflow-hidden px-6 py-16 md:min-h-[720px] md:px-20 md:py-24"
+  style="background: linear-gradient(180deg, #000 0%, #0a1a19 40%, #0d2624 60%, #000 100%);"
+  aria-labelledby="cta-heading"
 >
+  <div
+    class="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15"
+    style="background: radial-gradient(circle, rgba(147,201,199,0.4) 0%, transparent 70%);"
+    aria-hidden="true"
+  ></div>
+
   <img
-    class="absolute w-[70%] h-auto max-md:w-[100%] top-[200px] max-md:top-[100px] max-md:right-[-20%] max-md:scale-125"
+    class="pointer-events-none absolute left-1/2 top-16 w-[min(90%,720px)] max-w-none -translate-x-1/2 object-contain md:top-10 drop-shadow-[0_0_60px_rgba(147,201,199,0.15)]"
     src={imgCTA.src}
-    alt="Mockup-detailEvent"
+    alt=""
+    width={imgCTA.width}
+    height={imgCTA.height}
+    loading="lazy"
+    decoding="async"
+    aria-hidden="true"
   />
-  <div class="flex justify-center flex-col items-center bottom-[-800px] max-md:bottom-[-300px] z-10">
-    <p
-      class="font-geist font-normal text-base leading-[120%] flex flex-wrap text-center max-w-[788px] text-black mb-10  "
-    >
-      Explora lo mejor del rock en vivo. Desde los festivales más icónicos hasta
-      los conciertos underground, RockTicket te conecta con la música que amas.
+
+  <div class="relative z-10 flex max-w-3xl flex-col items-center text-center">
+    <h2 id="cta-heading" class="mb-4 font-squada text-3xl font-bold md:text-5xl">
+      Empieza a Vivir <br /> el Rock Hoy
+    </h2>
+    <p class="mb-10 max-w-lg font-geist text-base leading-relaxed text-white/60">
+      Descubre los mejores conciertos, compra tus entradas en segundos y lleva la experiencia del rock
+      en vivo a otro nivel.
     </p>
-    <Button title="Empieza ahora"/>
+    <Button title="Empieza ahora" href="#funciones" />
   </div>
 </section>

@@ -1,43 +1,38 @@
 ---
-import img1 from "@assets/images/carousel/image1.png";
-import img2 from "@assets/images/carousel/image2.png";
-import img3 from "@assets/images/carousel/image3.png";
-import img4 from "@assets/images/carousel/image4.png";
-import img5 from "@assets/images/carousel/image5.png";
+import { Image } from 'astro:assets';
+import img1 from '@assets/images/carousel/image1.png';
+import img2 from '@assets/images/carousel/image2.png';
+import img3 from '@assets/images/carousel/image3.png';
+import img4 from '@assets/images/carousel/image4.png';
+import img5 from '@assets/images/carousel/image5.png';
 
-const images = [img1, img2, img3, img4, img5];
+const images = [
+  { src: img1, alt: 'Público en un concierto de rock' },
+  { src: img2, alt: 'Artista en el escenario' },
+  { src: img3, alt: 'Multitud en un festival' },
+  { src: img4, alt: 'Concierto en vivo' },
+  { src: img5, alt: 'Fans disfrutando un show' },
+];
+
+const track = [...images, ...images];
 ---
 
-  <div class="relative overflow-hidden w-full h-[400px] max-md:h-[300px]">
-    <div class="flex h-full animate-slide">
-      {images.concat(images).map((image, index) => (
-        <img
+<div class="relative h-[400px] w-full overflow-hidden max-md:h-[300px]" role="region" aria-label="Galería de conciertos">
+  <div class="flex h-full w-max animate-slide">
+    {
+      track.map((image, index) => (
+        <Image
           src={image.src}
-          alt={`Photo ${index + 1}`}
-          class="h-full w-auto flex-shrink-0 object-cover"
+          alt={image.alt}
+          widths={[480, 720, 960]}
+          sizes="(max-width: 768px) 80vw, 480px"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-auto shrink-0 object-cover"
+          format="webp"
+          quality={80}
         />
-      ))}
-    </div>
-  </div>
-  
-  <style>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-  
-    @layer utilities {
-      @keyframes slide {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-100%);
-        }
-      }
-  
-      .animate-slide {
-        animation: slide 20s linear infinite;
-        width: calc(100% * 1);
-      }
+      ))
     }
-  </style>
+  </div>
+</div>

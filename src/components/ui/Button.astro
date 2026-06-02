@@ -1,11 +1,10 @@
 ---
-export interface CardProp {
+export interface ButtonProps {
   title: string;
+  href?: string;
 }
-const title = Astro.props.title || 'Descarga al App';
+
+const { title, href = '#' } = Astro.props;
 ---
 
-<a
-  class=" font-geist font-normal text-base leading-[120%]flex flex-wrap w-fit justify-between px-5 py-3 bg-cyan-950 text-white rounded-md"
-  href="">{title}</a
->
+<a class="btn-primary" href={href}>{title}</a>

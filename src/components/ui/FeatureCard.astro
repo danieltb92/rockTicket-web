@@ -1,42 +1,56 @@
-  ---
+---
 export interface CardProps {
   title: string;
   paragraph: string;
   imageSrc: string;
+  imageWidth?: number;
+  imageHeight?: number;
   bgColor: string;
   direction: 'left' | 'right' | 'top';
+  index?: number;
 }
 
-const title = Astro.props.title || 'Explora Eventos';
-const paragraph = Astro.props.paragraph || 'Descubre eventos de Rock en tu ciudad y encuentra los mejores festivales y conciertos personalizados según tus gustos.';
-const imageSrc = Astro.props.imageSrc || '../public/images/features-img/Home-Sony Xperia 1 II.svg';
-const bgColor = Astro.props.bgColor || 'linear-gradient(180deg, #93C9C7 0%, #486362 100%)';
-const direction = Astro.props.direction || 'right';
+const {
+  title,
+  paragraph,
+  imageSrc,
+  imageWidth,
+  imageHeight,
+  bgColor,
+  direction = 'right',
+  index = 0,
+} = Astro.props;
 ---
 
 <article
-  class={`flex ${
-    direction === 'right'
-      ? 'flex-row-reverse'
-      : direction === 'left'
-      ? 'flex-row'
-      : 'flex-col'
-  } max-w-[-webkit-fill-available] max-md:flex-col justify-center py-32 max-md:gap-72 max-sm:gap-96 px-4 gap-4`}
+  class:list={[
+    'glass-card group flex w-full flex-col items-center gap-8 p-6 md:max-w-5xl md:flex-row md:gap-12 md:p-10',
+    direction === 'right' && 'md:flex-row-reverse',
+    direction === 'left' && 'md:flex-row',
+  ]}
 >
-  <div class="flex flex-col justify-center items-center gap-2">
-    <h3 class="flex justify-center max-w-[450px] font-geist font-bold text-5xl max-md:text-3xl ">
-      {title}
-    </h3>
-    <p class="flex font-geist font-normal text-base leading-[120%] max-w-[256px] min-w-[250px]">
-      {paragraph}
-    </p>
-  </div>
-  <div class="w-[590px] h-[600px] flex justify-center items-center max-sm:w-full max-sm:h-[400px]  relative">
-    <div
-      class="w-full h-full rounded-[40px] max-md:w-full relative bottom-[-60px]"
-      style={`background: ${bgColor}`}
-    ></div>
-    <img src={imageSrc} alt={title} class="max-sm:w-[80%] absolute object-contain bottom-[-50px]" />
+  <div class="flex flex-1 flex-col items-center gap-4 text-center md:items-start md:text-left">
+    <span class="font-geist text-xs font-semibold uppercase tracking-[0.2em] text-accent/70">
+      0{index + 1}
+    </span>
+    <h3 class="max-w-md font-squada text-3xl font-bold leading-tight md:text-4xl">{title}</h3>
+    <p class="max-w-sm font-geist text-base leading-relaxed text-white/60">{paragraph}</p>
   </div>
 
+  <div class="relative flex h-[380px] w-full max-w-[480px] flex-1 items-center justify-center overflow-hidden rounded-2xl sm:h-[440px] md:h-[480px]">
+    <div
+      class="absolute inset-0 rounded-2xl opacity-80 transition-opacity duration-500 group-hover:opacity-100"
+      style={`background: ${bgColor}`}
+      aria-hidden="true"
+    ></div>
+    <img
+      src={imageSrc}
+      alt={title}
+      width={imageWidth}
+      height={imageHeight}
+      loading="lazy"
+      decoding="async"
+      class="relative z-10 max-h-[85%] w-auto max-w-[80%] object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]"
+    />
+  </div>
 </article>

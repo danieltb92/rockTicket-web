@@ -1,31 +1,63 @@
 ---
-import video from "@assets/6174235-hd_1920_1080_30fps.mp4";
+import videoSrc from '@assets/VideoRock-Hd 1920 1080 30Fps.mp4';
 ---
 
-<section class="relative w-full h-full overflow-hidden max-md:h-[600px] shadow-lg">
-    <video
-      class="w-full h-full object-cover"
-      autoplay
-      loop
-      muted
-      playsinline
-      poster=""
-    >
-      <source
-        src={video}
-        type="video/mp4"
-      />
-    </video>
-    <div
-      class="absolute inset-0"
-      style="background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 50%) 36.5%, #000 98.28%);"
-    ></div>
+<section
+  id="video"
+  class="relative min-h-[480px] w-full overflow-hidden md:min-h-[600px]"
+  aria-labelledby="video-heading"
+>
+  <video
+    class="h-full min-h-[480px] w-full object-cover md:min-h-[600px]"
+    muted
+    loop
+    playsinline
+    preload="none"
+    data-lazy-video
+    aria-hidden="true"
+  >
+    <source src={videoSrc} type="video/mp4" />
+  </video>
 
-  <div class="absolute inset-0 flex flex-col text-center justify-end items-center z-10 gap-6 pb-[10%] max-sm:p-4">
-    <h2 class="font-geist font-bold text-6xl max-md:text-4xl">Siente la Energía del Escenario.</h2>
-    <p class="max-w-[788px] font-geist font-normal text-base leading-[120%]">
-      Explora lo mejor del rock en vivo. Desde los festivales más icónicos hasta
-      los conciertos underground, RockTicket te conecta con la música que amas.
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="absolute inset-0 z-10 flex flex-col items-center justify-end gap-6 px-4 pb-[12%] text-center max-sm:pb-20"
+  >
+    <h2 id="video-heading" class="glow-accent font-squada text-4xl font-bold md:text-6xl">
+      Siente la Energía <br class="hidden sm:block" />del Escenario.
+    </h2>
+    <p class="max-w-[680px] font-geist text-base leading-relaxed text-white/70">
+      Explora lo mejor del rock en vivo. Desde los festivales más icónicos hasta los conciertos
+      underground, RockTicket te conecta con la música que amas.
     </p>
+    <div class="section-divider mt-2" aria-hidden="true"></div>
   </div>
 </section>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>('[data-lazy-video]');
+
+  if (videos.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            video.play().catch(() => undefined);
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: '120px' }
+    );
+
+    videos.forEach((video) => observer.observe(video));
+  } else {
+    videos.forEach((video) => video.play().catch(() => undefined));
+  }
+</script>
