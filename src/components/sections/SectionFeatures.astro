@@ -1,8 +1,32 @@
 ---
-import Card from '../ui/FeatureCard.astro';
+import FeatureCardAnimated from '../islands/FeatureCardAnimated';
 import imgFeature1 from '@assets/images/features-img/Home-SonyXperia1II.svg';
 import imgFeature2 from '@assets/images/features-img/Mockup-Tickets-SonyXperia1II.svg';
 import imgFeature3 from '@assets/images/features-img/Mockup-Notifications-SonyXperia1II.svg';
+
+const features = [
+  {
+    title: "Explora Eventos Cercanos",
+    paragraph: "Descubre eventos de Rock en tu ciudad y encuentra los mejores festivales y conciertos personalizados según tus gustos.",
+    imageSrc: imgFeature1.src,
+    bgColor: "linear-gradient(135deg, #93C9C7 0%, #3d6b69 100%)",
+    direction: "right" as const,
+  },
+  {
+    title: "Compra de Tickets en Un Clic",
+    paragraph: "Consigue tus entradas rápidamente con nuestro sistema de compra sencillo y seguro, sin largas esperas.",
+    imageSrc: imgFeature2.src,
+    bgColor: "linear-gradient(135deg, #57578A 0%, #1e1e3a 100%)",
+    direction: "left" as const,
+  },
+  {
+    title: "Notificaciones Personalizadas",
+    paragraph: "No te pierdas ninguna oportunidad. Recibe alertas de nuevos eventos, preventas y promociones especiales.",
+    imageSrc: imgFeature3.src,
+    bgColor: "linear-gradient(135deg, #666 0%, #333 100%)",
+    direction: "right" as const,
+  },
+];
 ---
 
 <section
@@ -21,35 +45,16 @@ import imgFeature3 from '@assets/images/features-img/Mockup-Notifications-SonyXp
   </header>
 
   <div class="flex w-full flex-col items-center gap-12 md:gap-20 lg:gap-24">
-    <Card
-      title="Explora Eventos Cercanos"
-      paragraph="Descubre eventos de Rock en tu ciudad y encuentra los mejores festivales y conciertos personalizados según tus gustos."
-      imageSrc={imgFeature1.src}
-      imageWidth={imgFeature1.width}
-      imageHeight={imgFeature1.height}
-      bgColor="linear-gradient(135deg, #93C9C7 0%, #3d6b69 100%)"
-      direction="right"
-      index={0}
-    />
-    <Card
-      title="Compra de Tickets en Un Clic"
-      direction="left"
-      paragraph="Consigue tus entradas rápidamente con nuestro sistema de compra sencillo y seguro, sin largas esperas."
-      imageSrc={imgFeature2.src}
-      imageWidth={imgFeature2.width}
-      imageHeight={imgFeature2.height}
-      bgColor="linear-gradient(135deg, #57578A 0%, #1e1e3a 100%)"
-      index={1}
-    />
-    <Card
-      title="Notificaciones Personalizadas"
-      direction="right"
-      paragraph="No te pierdas ninguna oportunidad. Recibe alertas de nuevos eventos, preventas y promociones especiales."
-      imageSrc={imgFeature3.src}
-      imageWidth={imgFeature3.width}
-      imageHeight={imgFeature3.height}
-      bgColor="linear-gradient(135deg, #666 0%, #333 100%)"
-      index={2}
-    />
+    {features.map((feature, index) => (
+      <FeatureCardAnimated
+        title={feature.title}
+        paragraph={feature.paragraph}
+        imageSrc={feature.imageSrc}
+        bgColor={feature.bgColor}
+        direction={feature.direction}
+        index={index}
+        client:load
+      />
+    ))}
   </div>
 </section>

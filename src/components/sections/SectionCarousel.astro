@@ -1,17 +1,18 @@
 ---
-import Carousel from "../ui/Carousel.astro";
+import SectionCarouselAnimated from '../islands/SectionCarouselAnimated';
+import img1 from '@assets/images/carousel/image1.png';
+import img2 from '@assets/images/carousel/image2.png';
+import img3 from '@assets/images/carousel/image3.png';
+import img4 from '@assets/images/carousel/image4.png';
+import img5 from '@assets/images/carousel/image5.png';
+
+const images = [
+  { src: img1.src, alt: 'Público en un concierto de rock' },
+  { src: img2.src, alt: 'Artista en el escenario' },
+  { src: img3.src, alt: 'Multitud en un festival' },
+  { src: img4.src, alt: 'Concierto en vivo' },
+  { src: img5.src, alt: 'Fans disfrutando un show' },
+];
 ---
 
-<section class="py-16 md:py-24" aria-label="Momentos en conciertos">
-  <header class="section-container mb-10 text-center md:mb-14">
-    <span
-      class="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-accent/70"
-    >
-      Galería
-    </span>
-    <h2 class="text-3xl font-bold md:text-7xl">
-      Momentos que Definen <br class="hidden sm:block" /> la Experiencia
-    </h2>
-  </header>
-  <Carousel />
-</section>
+<SectionCarouselAnimated images={images} client:load />

@@ -1,10 +1,5 @@
 ---
-export interface ButtonProps {
-  title: string;
-  href?: string;
-}
-
-const { title, href = '#' } = Astro.props;
+import ButtonMotion from '../islands/ButtonMotion';
 ---
 
-<a class="btn-primary" href={href}>{title}</a>
+<ButtonMotion title="Empieza ahora" href="#funciones" client:load />

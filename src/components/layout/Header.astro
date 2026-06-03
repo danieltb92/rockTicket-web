@@ -1,67 +1,12 @@
 ---
-import Menu from '../icons/Menu.astro';
+import HeaderAnimated from '../islands/HeaderAnimated';
 import imgLogo from '@assets/logo.svg';
 ---
 
-<header
-  class="sticky top-0 z-50 w-full border-b border-surface-border bg-black/80 backdrop-blur-md"
->
-  <div class="section-container flex h-16 items-center justify-between md:h-20">
-    <a href={import.meta.env.BASE_URL} class="shrink-0" aria-label="RockTicket — Inicio">
-      <img
-        src={imgLogo.src}
-        alt="Logo RockTicket"
-        width={imgLogo.width}
-        height={imgLogo.height}
-        class="h-10 w-auto md:h-14"
-        fetchpriority="high"
-      />
-    </a>
-
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Principal">
-      <a href="#funciones" class="font-geist text-sm text-white/60 transition-colors hover:text-accent">Funciones</a>
-      <a href="#video" class="font-geist text-sm text-white/60 transition-colors hover:text-accent">Experiencia</a>
-      <a href="#cta" class="font-geist text-sm text-white/60 transition-colors hover:text-accent">Empezar</a>
-    </nav>
-
-    <button
-      type="button"
-      class="inline-flex items-center justify-center rounded-md p-2 text-white md:hidden"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-      data-nav-toggle
-    >
-      <Menu />
-    </button>
-  </div>
-
-  <nav
-    class="hidden border-t border-surface-border bg-black/95 px-4 py-4 md:hidden"
-    aria-label="Menú móvil"
-    data-nav-menu
-  >
-    <ul class="flex flex-col gap-3">
-      <li><a href="#funciones" class="block py-2 font-geist text-white/80 transition-colors hover:text-accent" data-nav-link>Funciones</a></li>
-      <li><a href="#video" class="block py-2 font-geist text-white/80 transition-colors hover:text-accent" data-nav-link>Experiencia</a></li>
-      <li><a href="#cta" class="block py-2 font-geist text-white/80 transition-colors hover:text-accent" data-nav-link>Empezar</a></li>
-    </ul>
-  </nav>
-</header>
-
-<script>
-  const toggle = document.querySelector('[data-nav-toggle]');
-  const menu = document.querySelector('[data-nav-menu]');
-  const links = document.querySelectorAll('[data-nav-link]');
-
-  toggle?.addEventListener('click', () => {
-    const isOpen = menu?.classList.toggle('hidden') === false;
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  links.forEach((link) => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-      toggle?.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
+<HeaderAnimated
+  logoSrc={imgLogo.src}
+  logoWidth={imgLogo.width}
+  logoHeight={imgLogo.height}
+  base={import.meta.env.BASE_URL}
+  client:load
+/>

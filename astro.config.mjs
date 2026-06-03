@@ -1,10 +1,11 @@
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath, URL } from 'node:url';
-import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
+  integrations: [react()],
   site: 'https://danieltb92.github.io',
   base: '/rockTicket-web',
   image: {
@@ -13,6 +14,7 @@ export default defineConfig({
     },
   },
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
