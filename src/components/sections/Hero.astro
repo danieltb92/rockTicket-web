@@ -1,7 +1,7 @@
 ---
-import AppStore from '../icons/AppStore.astro';
-import GooglePlay from '../icons/GooglePlay.astro';
-import imgHero from '@assets/iPhone-15-Pro-Showcase-Screen-Scene-psd-MockupLLKLL 2.svg';
+import AppStore from "../icons/AppStore.astro";
+import GooglePlay from "../icons/GooglePlay.astro";
+import imgHero from "@assets/iPhone-15-Pro-Showcase-Screen-Scene-psd-MockupLLKLL 2.svg";
 ---
 
 <section class="hero relative overflow-hidden" aria-labelledby="hero-heading">
@@ -9,7 +9,8 @@ import imgHero from '@assets/iPhone-15-Pro-Showcase-Screen-Scene-psd-MockupLLKLL
     class="pointer-events-none absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20"
     style="background: radial-gradient(circle, rgba(147,201,199,0.3) 0%, transparent 70%);"
     aria-hidden="true"
-  ></div>
+  >
+  </div>
 
   <div
     class="relative z-10 flex h-[350px] flex-col items-center justify-center gap-6 px-5 text-center max-md:h-[400px] max-md:pb-8"
@@ -24,7 +25,7 @@ import imgHero from '@assets/iPhone-15-Pro-Showcase-Screen-Scene-psd-MockupLLKLL
       </h1>
     </div>
     <p
-      class="z-10 mx-auto w-full sm:w-full font-geist text-lg font-normal max-sm:text-base sm:px-5"
+      class="z-10 mx-auto w-full sm:w-full text-xl font-normal max-sm:text-base sm:px-5"
     >
       Descubre, compra y disfruta de tus conciertos favoritos con RockTicket.
     </p>
@@ -32,7 +33,7 @@ import imgHero from '@assets/iPhone-15-Pro-Showcase-Screen-Scene-psd-MockupLLKLL
 
   <div id="Image-Bg" class="relative z-0 w-full">
     <img
-      class="h-auto w-[110%] max-w-none object-cover object-center md:scale-[1.05] lg:scale-[1.1] max-md:w-[120%] max-md:min-h-[600px] max-md:scale-[1.1] max-md:object-center"
+      class="h-auto w-[110%] max-w-none object-cover object-center md:scale-[1.0] max-md:w-[120%] max-md:min-h-[600px] max-md:scale-[1.1] max-md:object-center"
       src={imgHero.src}
       alt="Aplicación RockTicket en un iPhone mostrando eventos de rock"
       width={imgHero.width}
@@ -43,7 +44,7 @@ import imgHero from '@assets/iPhone-15-Pro-Showcase-Screen-Scene-psd-MockupLLKLL
   </div>
 
   <div
-    class="relative bottom-14 md:bottom-28 z-20 flex md:flex-row justify-center items-center gap-0 sm:sgap-3 max-md:pl-0 max-sm:justify-center sm:pl-[20%] md:pl-[40%] -mt-[10vh] max-sm:-mt-36"
+    class="relative bottom-14 md:bottom-28 z-20 flex md:flex-row justify-center items-center gap-0 sm:gap-6 max-md:pl-0 max-sm:justify-center sm:pl-[20%] md:pl-[40%] -mt-[10vh] max-sm:-mt-36"
   >
     <AppStore />
     <GooglePlay />

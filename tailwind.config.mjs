@@ -9,6 +9,7 @@ export default {
         geist: ['Geist', 'system-ui', 'sans-serif'],
         'geist-mono': ['Geist Mono', 'monospace'],
         squada: ['Squada One', 'system-ui', 'sans-serif'],
+        sourceSans: ['Source Sans3', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: '#1e1e1e',
