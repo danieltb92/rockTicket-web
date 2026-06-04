@@ -16,17 +16,17 @@ export default function SectionCTAAnimated({
     <section
       id="cta"
       className="relative flex min-h-[680px] w-full flex-col items-center justify-end overflow-hidden px-6 py-16 md:min-h-[820px] md:px-20 md:py-24"
-      style={{ background: "linear-gradient(180deg, #000 0%, #0a1a19 40%, #0d2624 60%, #000 100%)" }}
+      style={{ background: "linear-gradient(180deg, #000 0%, #001D1D 40%, #013333 60%, #000 100%)" }}
       aria-labelledby="cta-heading"
     >
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15"
-        style={{ background: "radial-gradient(circle, rgba(147,201,199,0.4) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(0,205,200,0.3) 0%, transparent 70%)" }}
         aria-hidden="true"
       />
 
       <motion.img
-        className="pointer-events-none absolute left-1/2 top-48 w-[min(90%,720px)] max-w-none -translate-x-1/2 object-contain md:top-32 drop-shadow-[0_0_60px_rgba(147,201,199,0.15)]"
+        className="pointer-events-none absolute left-1/2 top-48 w-[min(90%,720px)] max-w-none -translate-x-1/2 object-contain md:top-32 drop-shadow-[0_0_60px_rgba(0,205,200,0.15)]"
         src={imgSrc}
         alt=""
         width={imgWidth}

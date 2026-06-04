@@ -19,7 +19,7 @@ export default function HeroAnimated({
     <section className="hero relative overflow-hidden" aria-labelledby="hero-heading">
       <div
         className="pointer-events-none absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20"
-        style={{ background: "radial-gradient(circle, rgba(147,201,199,0.3) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(0,205,200,0.25) 0%, transparent 70%)" }}
         aria-hidden="true"
       />
 
