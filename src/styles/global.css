@@ -2,25 +2,33 @@
 
 /* ===== Custom Fonts ===== */
 @font-face {
-  font-family: 'Squada One';
-  src: local('Squada One'), local('SquadaOne-Regular'),
-       url('/rockTicket-web/fonts/SquadaOne-Regular.ttf') format('truetype');
+  font-family: "Squada One";
+  src:
+    local("Squada One"),
+    local("SquadaOne-Regular"),
+    url("/rockTicket-web/fonts/SquadaOne-Regular.ttf") format("truetype");
   font-weight: 400-900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Source Sans Pro';
-  src: local('Source Sans Pro'), local('SourceSansPro-Regular'),
-       url('/rockTicket-web/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
+  font-family: "Source Sans Pro";
+  src:
+    local("Source Sans Pro"),
+    local("SourceSansPro-Regular"),
+    url("/rockTicket-web/fonts/SourceSans3-VariableFont_wght.ttf")
+      format("truetype");
   font-weight: 400-900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Source Sans3';
-  src: local('Source Sans3'), local('SourceSans3-Regular'),
-       url('/rockTicket-web/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
+  font-family: "Source Sans3";
+  src:
+    local("Source Sans3"),
+    local("SourceSans3-Regular"),
+    url("/rockTicket-web/fonts/SourceSans3-VariableFont_wght.ttf")
+      format("truetype");
   font-weight: 400-900;
   font-style: normal;
   font-display: swap;
@@ -28,61 +36,60 @@
 
 /* ===== Tailwind 4 Theme ===== */
 @theme {
-
   /* --- Breakpoints (DESIGN.md) --- */
   --breakpoint-md: 768px;
 
   /* --- Font Families --- */
-  --font-squada: 'Squada One', system-ui, sans-serif;
-  --font-sourceSans: 'Source Sans Pro', system-ui, sans-serif;
-  --font-source-sans: 'Source Sans Pro', system-ui, sans-serif;
-  --font-inter: 'Inter', sans-serif;
-  --font-jetbrains: 'JetBrains Mono', monospace;
-  --font-geist: 'Geist', system-ui, sans-serif;
-  --font-geist-mono: 'Geist Mono', monospace;
+  --font-squada: "Squada One", system-ui, sans-serif;
+  --font-sourceSans: "Source Sans Pro", system-ui, sans-serif;
+  --font-source-sans: "Source Sans Pro", system-ui, sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+  --font-geist: "Geist", system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
 
   /* --- DESIGN.md Colors: Semantic Roles --- */
   --color-primary: #141454;
-  --color-secondary: #007E7C;
-  --color-accent: #00CDC8;
+  --color-secondary: #007e7c;
+  --color-accent: #00cdc8;
   --color-surface: #000000;
   --color-neutral: #999999;
-  --color-white: #FFFFFF;
+  --color-white: #ffffff;
 
   /* --- Primary Scale --- */
   --color-primary-900: #141454;
   --color-primary-700: #292952;
-  --color-primary-500: #57578A;
-  --color-primary-300: #9494BC;
-  --color-primary-100: #C7C7DF;
+  --color-primary-500: #57578a;
+  --color-primary-300: #9494bc;
+  --color-primary-100: #c7c7df;
 
   /* --- Secondary Scale --- */
-  --color-secondary-900: #007E7C;
-  --color-secondary-600: #4FAAA8;
-  --color-secondary-300: #93C9C7;
-  --color-secondary-100: #D1E3E3;
-  --color-secondary-3: #001D1D;
+  --color-secondary-900: #007e7c;
+  --color-secondary-600: #4faaa8;
+  --color-secondary-300: #93c9c7;
+  --color-secondary-100: #d1e3e3;
+  --color-secondary-3: #001d1d;
   --color-secondary-2: #013333;
-  --color-secondary-1: #00504E;
+  --color-secondary-1: #00504e;
 
   /* --- Teal Scale (Global) --- */
-  --color-teal-700: #007E7C;
-  --color-teal-600: #009E9B;
-  --color-teal-500: #00CDC8;
-  --color-teal-400: #00DCD7;
-  --color-teal-300: #00EEE9;
-  --color-teal-200: #41FFFB;
-  --color-teal-100: #B6FFFC;
-  --color-teal-50: #E1FFFD;
-  --color-teal-1: #F0FFFE;
+  --color-teal-700: #007e7c;
+  --color-teal-600: #009e9b;
+  --color-teal-500: #00cdc8;
+  --color-teal-400: #00dcd7;
+  --color-teal-300: #00eee9;
+  --color-teal-200: #41fffb;
+  --color-teal-100: #b6fffc;
+  --color-teal-50: #e1fffd;
+  --color-teal-1: #f0fffe;
 
   /* --- Neutrals --- */
   --color-neutral-900: #000000;
   --color-neutral-800: #333333;
   --color-neutral-700: #666666;
   --color-neutral-500: #999999;
-  --color-neutral-300: #CCCCCC;
-  --color-neutral-200: #E5E5E5;
+  --color-neutral-300: #cccccc;
+  --color-neutral-200: #e5e5e5;
 
   /* --- Backward-compatible surface helpers --- */
   --color-surface-light: #141414;
@@ -91,8 +98,8 @@
   --color-surface-border-hover: rgba(0, 205, 200, 0.2);
 
   /* --- Component-level accent helpers --- */
-  --color-accent-light: #B6FFFC;
-  --color-accent-dark: #009E9B;
+  --color-accent-light: #b6fffc;
+  --color-accent-dark: #009e9b;
   --color-accent-glow: rgba(0, 205, 200, 0.35);
 
   /* --- Typography Scale (DESIGN.md) --- */
@@ -141,28 +148,52 @@
 
 /* ===== Keyframes ===== */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
 }
 
 @keyframes slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* ===== Base Styles ===== */
@@ -212,24 +243,43 @@ h5 {
 }
 
 @utility glow-accent {
-  text-shadow: 0 0 40px rgba(0, 205, 200, 0.35), 0 0 80px rgba(0, 205, 200, 0.15);
+  text-shadow:
+    0 0 40px rgba(0, 205, 200, 0.35),
+    0 0 80px rgba(0, 205, 200, 0.15);
 }
 
 @utility glow-line {
-  background: linear-gradient(90deg, transparent, rgba(0, 205, 200, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 205, 200, 0.4),
+    transparent
+  );
 }
 
 @utility section-divider {
   @apply mx-auto h-px w-full max-w-xs;
-  background: linear-gradient(90deg, transparent, rgba(0, 205, 200, 0.25), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 205, 200, 0.25),
+    transparent
+  );
 }
 
 @utility glass-card {
   @apply rounded-xl border border-surface-border bg-surface-lighter/60 backdrop-blur-sm;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 @utility text-gradient {
   @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(135deg, #ffffff 0%, #00CDC8 50%, #ffffff 100%);
+  background-image: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #00cdc8 50%,
+    #ffffff 100%
+  );
 }
