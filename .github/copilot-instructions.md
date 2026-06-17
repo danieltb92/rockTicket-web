@@ -5,10 +5,11 @@
 This is an Astro project with React and Tailwind CSS for a rock concert ticket landing page.
 
 **Tech Stack:**
-- Astro 4.x with React integration
-- Tailwind CSS for styling
+- Astro 6.x with React integration
+- Tailwind CSS v4 (CSS-based configuration via `@theme`)
 - TypeScript
 - Motion (framer-motion) for animations
+- pnpm (package manager)
 
 ---
 
@@ -16,37 +17,37 @@ This is an Astro project with React and Tailwind CSS for a rock concert ticket l
 
 ### Development
 ```bash
-npm run dev      # Start local dev server at localhost:4321
-npm run start    # Alias for dev
+pnpm dev          # Start local dev server at localhost:4321
+pnpm start        # Alias for dev
 ```
 
 ### Build & Preview
 ```bash
-npm run build          # Build production site to ./dist/
-npm run preview        # Preview build locally
-npm run astro check    # Run Astro type checking
+pnpm build         # Build production site to ./dist/
+pnpm preview       # Preview build locally
+pnpm astro check   # Run Astro type checking
 ```
 
 ### Adding Integrations
 ```bash
-npx astro add react    # Add React integration
-npx astro add tailwind # Add Tailwind integration
+pnpm astro add react    # Add React integration
+pnpm astro add tailwind # Add Tailwind integration
 ```
 
 ### Testing
 No test framework is currently configured. To add tests:
 ```bash
 # Install Vitest (recommended for Astro)
-npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom
+pnpm add -D vitest @testing-library/react @testing-library/jest-dom jsdom
 
 # Run all tests
-npx vitest run
+pnpm vitest run
 
 # Run a single test file
-npx vitest run src/components/__tests__/Button.test.tsx
+pnpm vitest run src/components/__tests__/Button.test.tsx
 
 # Run tests in watch mode
-npx vitest
+pnpm vitest
 ```
 
 ---
@@ -60,7 +61,7 @@ npx vitest
 
 ### File Naming
 - **Astro components**: `PascalCase.astro` (e.g., `Button.astro`, `SectionVideo.astro`)
-- **React islands**: `PascalCase.jsx` or `.tsx` in `src/components/islands/` (e.g., `Hero2.jsx`)
+- **React islands**: `PascalCase.tsx` in `src/components/islands/` (e.g., `HeroAnimated.tsx`)
 - **Icon components**: `PascalCase.astro` in `src/components/icons/` (e.g., `AppStore.astro`)
 - **Assets**: `src/assets/` — SVG/icons in `icons/`, images in `images/<section>/`, media at root or `media/`
 
@@ -84,7 +85,7 @@ const { title = 'Default' } = Astro.props;
 #### React Components
 ```tsx
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import type { FC } from 'react';
 
 interface Props {
@@ -122,27 +123,29 @@ export const Button: FC<ButtonProps> = ({ variant = 'primary', children }) => {
 ```tsx
 // External libraries first
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 // Internal components
 import Button from '../components/Button';
 import type { ButtonProps } from '../types';
 ```
 
-### Tailwind CSS
+### Tailwind CSS v4
+- Tailwind v4 uses CSS-based configuration via `@theme` directive in `src/styles/global.css`
+- No `tailwind.config.*` file — all theme values defined in CSS
+- Use `@utility` for custom component classes (e.g., `btn-primary`, `glass-card`)
 - Use utility classes consistently
 - Group related classes logically
-- Use semantic color names from `tailwind.config.mjs`:
-  - `primary`, `secondary`, `tertiary`, etc.
-- Custom fonts: `font-inter`, `font-jetbrains`, `font-geist`, `font-geist-mono`
+- Custom fonts: `font-squada`, `font-sourceSans`, `font-inter`, `font-jetbrains`, `font-geist`, `font-geist-mono`
 
 ```html
-<div class="font-geist font-bold text-8xl text-secondary">Text</div>
+<div class="font-squada font-bold text-h1 text-secondary">Text</div>
 ```
 
-### Animations (Motion/framer-motion)
+### Animations (Motion)
 - Use `motion.` prefix for animated elements
 - Keep animation configs consistent
+- Import from `motion/react` (not `framer-motion`)
 
 ```tsx
 <motion.div
@@ -186,31 +189,47 @@ src/
 │   ├── images/          # PNG/SVG by section (carousel/, features-img/, sectionCTA/, …)
 │   └── favicon.svg
 ├── components/
-│   ├── dev/             # Experimental / WIP (Test, prototypes)
 │   ├── icons/           # Astro icon wrappers (.astro)
 │   ├── islands/         # React components with client hydration
 │   ├── layout/          # Header, Footer
 │   ├── sections/        # Page sections (Hero, SectionVideo, SectionCTA, …)
 │   └── ui/              # Reusable primitives (Button, Carousel, FeatureCard, …)
 ├── layouts/             # Page shells
-└── pages/               # Routes
+├── pages/               # Routes
+├── styles/              # Global CSS (Tailwind v4 @theme configuration)
+└── env.d.ts
 ```
 
 ### Import aliases
 
 Use path aliases configured in `astro.config.mjs` and `tsconfig.json`:
 
+- `@/...` — src root
 - `@components/...` — components
 - `@assets/...` — images, icons, video
 - `@layouts/...` — layouts
+- `@styles/...` — styles
 
 ---
 
 ## Configuration Files
 
-- `astro.config.mjs` - Astro configuration
-- `tailwind.config.mjs` - Tailwind theme with custom colors/fonts
+- `astro.config.mjs` - Astro configuration (integrations, Vite plugins, path aliases)
 - `tsconfig.json` - TypeScript base config (extends `astro/tsconfigs/base`)
+- `src/styles/global.css` - Tailwind v4 theme via `@theme`, custom utilities via `@utility`
+- `pnpm-workspace.yaml` - pnpm workspace config (build allowances for esbuild, sharp)
+
+### Tailwind v4 Theme Reference
+
+Theme defined in `src/styles/global.css` using `@theme`:
+
+**Colors:** primary, secondary, accent, surface, neutral, white + scales
+**Fonts:** squada, sourceSans, inter, jetbrains, geist, geist-mono
+**Typography:** h1 (40px), h2 (32px), h3 (24px), h4 (18px), h5 (14px), title-h1 (60px), title-h2 (40px)
+**Spacing:** 0–16 range (4px base), plus padding-desktop (32px), padding-mobile (16px)
+**Border Radius:** none, xs (4px), sm (6px), md (8px), lg (12px), xl (16px), full (999px)
+
+Use `@utility` classes: `section-container`, `btn-primary`, `glow-accent`, `glow-line`, `section-divider`, `glass-card`, `text-gradient`
 
 ---
 
@@ -218,6 +237,7 @@ Use path aliases configured in `astro.config.mjs` and `tsconfig.json`:
 
 1. **Static vs Interactive**: Use Astro components for static content, React only where interactivity is needed
 2. **Performance**: Optimize images, use lazy loading for below-fold content
-3. **Responsive**: Design for mobile-first, use Tailwind breakpoints (default + custom `md: 769px`)
+3. **Responsive**: Design for mobile-first, use Tailwind breakpoints (default + custom `md: 768px`)
 4. **Keep it simple**: Avoid over-engineering; Astro is designed for simplicity
-5. **Type safety**: Run `npm run astro check` before committing to catch type errors
+5. **Type safety**: Run `pnpm astro check` before committing to catch type errors
+6. **pnpm**: Always use `pnpm` for package management (never npm or yarn)
