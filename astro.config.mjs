@@ -1,13 +1,16 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath, URL } from 'node:url';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  integrations: [react(), sitemap()],
   site: 'https://danieltb92.github.io',
   base: '/rockTicket-web',
+  trailingSlash: 'never',
+  compressHTML: true,
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',

@@ -2,9 +2,10 @@ import { motion } from "motion/react";
 
 interface SectionVideoAnimatedProps {
   videoSrc: string;
+  poster?: string;
 }
 
-export default function SectionVideoAnimated({ videoSrc }: SectionVideoAnimatedProps) {
+export default function SectionVideoAnimated({ videoSrc, poster }: SectionVideoAnimatedProps) {
   return (
     <section
       id="video"
@@ -19,6 +20,7 @@ export default function SectionVideoAnimated({ videoSrc }: SectionVideoAnimatedP
         preload="none"
         data-lazy-video
         aria-hidden="true"
+        poster={poster}
       >
         <source src={videoSrc} type="video/mp4" />
       </video>

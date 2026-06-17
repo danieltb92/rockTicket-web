@@ -3,7 +3,7 @@ import SectionVideoAnimated from '../islands/SectionVideoAnimated';
 import videoSrc from '@assets/VideoRock-Hd 1920 1080 30Fps.mp4';
 ---
 
-<SectionVideoAnimated videoSrc={videoSrc} client:load />
+<SectionVideoAnimated videoSrc={videoSrc} poster="/rockTicket-web/images/poster-video.jpg" client:load />
 
 <script>
   const videos = document.querySelectorAll<HTMLVideoElement>('[data-lazy-video]');
