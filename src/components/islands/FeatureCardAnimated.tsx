@@ -31,7 +31,7 @@ export default function FeatureCardAnimated({
     >
       <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left w-full md:w-1/2 max-w-[480px] gap-4 md:gap-6">
         <motion.h3
-          className="font-sourceSans font-bold text-4xl sm:text-5xl leading-tight text-white tracking-tight"
+          className="font-squada font-bold text-4xl sm:text-5xl leading-tight text-white tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

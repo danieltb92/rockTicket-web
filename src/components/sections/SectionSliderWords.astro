@@ -15,12 +15,12 @@ const track = [...wordsUpper, ...wordsUpper, ...wordsUpper];
 ---
 
 <div
-  class="relative h-16 w-full overflow-hidden border-y border-surface-border bg-surface max-md:h-14"
+  class="group/marquee relative h-16 w-full overflow-hidden border-y border-surface-border bg-surface max-md:h-14"
   aria-hidden="true"
 >
   <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent z-10" aria-hidden="true"></div>
   <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10" aria-hidden="true"></div>
-  <div class="flex h-full w-max animate-marquee items-center whitespace-nowrap">
+  <div id="marquee-track" class="flex h-full w-max animate-marquee items-center whitespace-nowrap">
     {
       track.map((word, i) => (
         <span class="flex shrink-0 items-center gap-12">
@@ -32,4 +32,29 @@ const track = [...wordsUpper, ...wordsUpper, ...wordsUpper];
       ))
     }
   </div>
+  <button
+    type="button"
+    data-marquee-toggle
+    class="absolute bottom-2 right-3 z-20 flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white/40 opacity-0 backdrop-blur-sm transition-all hover:border-accent/30 hover:text-accent group-hover/marquee:opacity-100 max-md:hidden"
+    aria-hidden="true"
+  >
+    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
+    </svg>
+  </button>
 </div>
+
+<script>
+  const toggle = document.querySelector('[data-marquee-toggle]');
+  const track = document.getElementById('marquee-track');
+  if (toggle && track) {
+    let paused = false;
+    toggle.addEventListener('click', () => {
+      paused = !paused;
+      track.style.animationPlayState = paused ? 'paused' : 'running';
+      toggle.innerHTML = paused
+        ? '<svg class="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>'
+        : '<svg class="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>';
+    });
+  }
+</script>
