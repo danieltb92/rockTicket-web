@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface HeaderAnimatedProps {
@@ -15,6 +15,35 @@ export default function HeaderAnimated({
   base,
 }: HeaderAnimatedProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const sections = navLinks.map((l) => document.querySelector(l.href)).filter(Boolean);
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+
+    sections.forEach((s) => observer.observe(s!));
+    return () => observer.disconnect();
+  }, []);
 
   const navLinks = [
     { href: "#funciones", label: "Funciones" },
@@ -41,7 +70,9 @@ export default function HeaderAnimated({
             <motion.a
               key={link.href}
               href={link.href}
-              className="font-geist text-sm text-white/60 transition-colors hover:text-accent"
+              className={`font-geist text-sm transition-colors hover:text-accent ${
+                activeSection === link.href ? "text-accent" : "text-white/60"
+              }`}
               whileHover={{ y: -2 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
@@ -53,7 +84,7 @@ export default function HeaderAnimated({
         <motion.button
           type="button"
           className="inline-flex items-center justify-center rounded-md p-2 text-white md:hidden"
-          aria-label="Abrir menú"
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
           whileTap={{ scale: 0.9 }}
@@ -88,7 +119,9 @@ export default function HeaderAnimated({
                 >
                   <a
                     href={link.href}
-                    className="block py-2 font-geist text-white/80 transition-colors hover:text-accent"
+                    className={`block py-2 font-geist transition-colors hover:text-accent ${
+                      activeSection === link.href ? "text-accent" : "text-white/80"
+                    }`}
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}

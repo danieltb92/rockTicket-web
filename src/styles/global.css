@@ -17,14 +17,6 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: 'Source Sans3';
-  src: local('Source Sans3'), local('SourceSans3-Regular'),
-       url('/rockTicket-web/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400-900;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* ===== Tailwind 4 Theme ===== */
 @theme {
@@ -187,6 +179,21 @@ html {
 body {
   @apply bg-surface text-white antialiased;
   @apply font-sourceSans;
+  caret-color: var(--color-accent);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-800);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dark);
 }
 
 h1,
@@ -197,8 +204,16 @@ h5 {
   @apply font-squada;
 }
 
-::selection {
-  @apply bg-accent/25 text-white;
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
 }
 
 /* ===== Component Utilities ===== */
@@ -210,13 +225,29 @@ h5 {
   @apply inline-flex items-center justify-center rounded-md bg-accent px-7 py-3.5 font-sourceSans text-base font-bold text-surface transition-all duration-300;
   box-shadow: 0 0 20px rgba(0, 205, 200, 0.2);
 }
+btn-primary:hover {
+  box-shadow: 0 0 30px rgba(0, 205, 200, 0.4), 0 0 60px rgba(0, 205, 200, 0.15);
+}
 
 @utility glow-accent {
-  text-shadow: 0 0 40px rgba(0, 205, 200, 0.35), 0 0 80px rgba(0, 205, 200, 0.15);
+  text-shadow: 0 0 40px rgba(0, 205, 200, 0.5), 0 0 80px rgba(0, 205, 200, 0.25), 0 0 120px rgba(0, 205, 200, 0.1);
 }
 
 @utility glow-line {
-  background: linear-gradient(90deg, transparent, rgba(0, 205, 200, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 205, 200, 0.5), transparent);
+}
+
+@utility noise-overlay {
+  position: relative;
+}
+noise-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
 }
 
 @utility section-divider {

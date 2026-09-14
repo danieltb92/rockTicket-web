@@ -8,7 +8,7 @@ export default function SectionVideoAnimated({ videoSrc }: SectionVideoAnimatedP
   return (
     <section
       id="video"
-      className="relative min-h-[480px] w-full overflow-hidden md:min-h-[600px]"
+      className="noise-overlay relative min-h-[480px] w-full overflow-hidden md:min-h-[600px]"
       aria-labelledby="video-heading"
     >
       <video
@@ -31,7 +31,7 @@ export default function SectionVideoAnimated({ videoSrc }: SectionVideoAnimatedP
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-end gap-6 px-4 pb-[12%] text-center max-sm:pb-20">
         <motion.h2
           id="video-heading"
-          className="glow-accent font-squada text-4xl font-bold md:text-7xl"
+          className="glow-accent font-squada text-4xl font-bold md:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}

@@ -15,13 +15,13 @@ export default function SectionCTAAnimated({
   return (
     <section
       id="cta"
-      className="relative flex min-h-[680px] w-full flex-col items-center justify-end overflow-hidden px-6 py-16 md:min-h-[820px] md:px-20 md:py-24"
+      className="noise-overlay relative flex min-h-[680px] w-full flex-col items-center justify-end overflow-hidden px-6 py-16 md:min-h-[820px] md:px-20 md:py-24"
       style={{ background: "linear-gradient(180deg, #000 0%, #001D1D 40%, #013333 60%, #000 100%)" }}
       aria-labelledby="cta-heading"
     >
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15"
-        style={{ background: "radial-gradient(circle, rgba(0,205,200,0.3) 0%, transparent 70%)" }}
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20"
+        style={{ background: "radial-gradient(circle, rgba(0,205,200,0.35) 0%, transparent 60%)" }}
         aria-hidden="true"
       />
 
@@ -43,7 +43,7 @@ export default function SectionCTAAnimated({
       <div className="relative z-10 flex max-w-3xl flex-col items-center text-center">
         <motion.h2
           id="cta-heading"
-          className="mb-4 text-4xl font-bold md:text-7xl"
+          className="mb-4 font-squada text-4xl font-bold md:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
