@@ -6,9 +6,10 @@ This is an Astro project with React and Tailwind CSS for a rock concert ticket l
 
 **Tech Stack:**
 - Astro 4.x with React integration
-- Tailwind CSS for styling
+- Tailwind CSS 4.x for styling (via `@theme` in `global.css`)
 - TypeScript
 - Motion (framer-motion) for animations
+- DESIGN.md for design system tokens
 
 ---
 
@@ -84,7 +85,7 @@ const { title = 'Default' } = Astro.props;
 #### React Components
 ```tsx
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import type { FC } from 'react';
 
 interface Props {
@@ -122,7 +123,7 @@ export const Button: FC<ButtonProps> = ({ variant = 'primary', children }) => {
 ```tsx
 // External libraries first
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 // Internal components
 import Button from '../components/Button';
@@ -132,16 +133,18 @@ import type { ButtonProps } from '../types';
 ### Tailwind CSS
 - Use utility classes consistently
 - Group related classes logically
-- Use semantic color names from `tailwind.config.mjs`:
-  - `primary`, `secondary`, `tertiary`, etc.
-- Custom fonts: `font-inter`, `font-jetbrains`, `font-geist`, `font-geist-mono`
+- Use semantic color names from `global.css` `@theme`:
+  - `primary`, `secondary`, `accent`, `surface`, `neutral`
+- Custom fonts: `font-squada`, `font-sourceSans`, `font-geist`, `font-geist-mono`
+- Design tokens defined in `DESIGN.md` and mirrored in `global.css` `@theme`
 
 ```html
-<div class="font-geist font-bold text-8xl text-secondary">Text</div>
+<div class="font-squada font-bold text-8xl text-accent">Text</div>
 ```
 
 ### Animations (Motion/framer-motion)
 - Use `motion.` prefix for animated elements
+- Import from `motion/react` (not `framer-motion`)
 - Keep animation configs consistent
 
 ```tsx
@@ -190,8 +193,7 @@ src/
 │   ├── icons/           # Astro icon wrappers (.astro)
 │   ├── islands/         # React components with client hydration
 │   ├── layout/          # Header, Footer
-│   ├── sections/        # Page sections (Hero, SectionVideo, SectionCTA, …)
-│   └── ui/              # Reusable primitives (Button, Carousel, FeatureCard, …)
+│   └── sections/        # Page sections (Hero, SectionVideo, SectionCTA, …)
 ├── layouts/             # Page shells
 └── pages/               # Routes
 ```
@@ -209,7 +211,6 @@ Use path aliases configured in `astro.config.mjs` and `tsconfig.json`:
 ## Configuration Files
 
 - `astro.config.mjs` - Astro configuration
-- `tailwind.config.mjs` - Tailwind theme with custom colors/fonts
 - `tsconfig.json` - TypeScript base config (extends `astro/tsconfigs/base`)
 
 ---
