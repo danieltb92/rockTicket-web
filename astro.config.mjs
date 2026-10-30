@@ -7,8 +7,7 @@ import { fileURLToPath, URL } from 'node:url';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), sitemap()],
-  site: 'https://danieltb92.github.io',
-  base: '/rockTicket-web',
+  site: 'https://rockticket-web.vercel.app',
   trailingSlash: 'never',
   compressHTML: true,
   image: {

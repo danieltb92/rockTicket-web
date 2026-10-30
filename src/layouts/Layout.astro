@@ -8,7 +8,7 @@ interface Props {
 const {
   title,
   description = 'Compra entradas para conciertos y festivales de rock. Descubre eventos, artistas y experiencias en vivo con RockTicket.',
-  image = '/rockTicket-web/logo.svg',
+  image = '/logo.svg',
 } = Astro.props;
 
 import favicon from '@assets/favicon.svg';
@@ -58,7 +58,7 @@ const siteName = 'RockTicket';
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": siteName,
-      "url": canonicalURL.origin + '/rockTicket-web',
+      "url": canonicalURL.origin,
       "description": description,
       "inLanguage": "es-CO",
       "publisher": {
@@ -66,7 +66,7 @@ const siteName = 'RockTicket';
         "name": siteName,
         "logo": {
           "@type": "ImageObject",
-          "url": canonicalURL.origin + '/rockTicket-web/logo.svg'
+          "url": canonicalURL.origin + '/logo.svg'
         }
       }
     })}></script>

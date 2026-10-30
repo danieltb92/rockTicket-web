@@ -6,7 +6,7 @@
   src:
     local("Squada One"),
     local("SquadaOne-Regular"),
-    url("/rockTicket-web/fonts/SquadaOne-Regular.ttf") format("truetype");
+    url("/fonts/SquadaOne-Regular.ttf") format("truetype");
   font-weight: 400-900;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
   src:
     local("Source Sans Pro"),
     local("SourceSansPro-Regular"),
-    url("/rockTicket-web/fonts/SourceSans3-VariableFont_wght.ttf")
+    url("/fonts/SourceSans3-VariableFont_wght.ttf")
       format("truetype");
   font-weight: 400-900;
   font-style: normal;
@@ -27,7 +27,7 @@
   src:
     local("Source Sans3"),
     local("SourceSans3-Regular"),
-    url("/rockTicket-web/fonts/SourceSans3-VariableFont_wght.ttf")
+    url("/fonts/SourceSans3-VariableFont_wght.ttf")
       format("truetype");
   font-weight: 400-900;
   font-style: normal;
