@@ -44,6 +44,6 @@ Configuración Tailwind v4 vía `@theme` en `src/styles/global.css`. Incluye col
 
 ## Despliegue
 
-Automatizado con GitHub Actions. Cada push a `main` construye el sitio y lo publica en GitHub Pages:
+Automatizado con Vercel. Cada push a `main` construye el sitio y lo publica:
 
-[https://danieltb92.github.io/rockTicket-web](https://danieltb92.github.io/rockTicket-web)
+[https://rockticket-web.vercel.app](https://rockticket-web.vercel.app)

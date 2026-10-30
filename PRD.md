@@ -119,8 +119,8 @@ src/
 ### 5.3 Static Generation
 
 - `output: static` (SSG)
-- Despliegue a GitHub Pages via GitHub Actions
-- Base URL: `/rockTicket-web`
+- Despliegue a Vercel
+- Base URL: `/` (Root)
 
 ## 6. Design System
 
@@ -152,7 +152,7 @@ src/
 - [x] Header y Footer
 - [x] Tema oscuro con Tailwind v4
 - [x] Animaciones con Motion
-- [x] Despliegue automatizado a GitHub Pages
+- [x] Despliegue automatizado a Vercel
 
 ### v2 — Próximas iteraciones
 - [ ] Página de detalles de concierto (dinámica)
