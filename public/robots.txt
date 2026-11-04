@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rockticket-web.vercel.app/sitemap.xml

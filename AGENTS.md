@@ -1,18 +1,40 @@
-# AGENTS.md - rockTicket-web
+# AGENTS.md
+
+Compact instructions for working on the RockTicket Web repository.
 
 ## Project Overview
+Landing page for RockTicket mobile app, built with **Astro 6** (SSG), **React 19**, **Tailwind CSS v4**, and **Motion**.
 
-This is an Astro project with React and Tailwind CSS for a rock concert ticket landing page.
+## Key Commands
+| Action | Command |
+| :--- | :--- |
+| Start Dev Server | `pnpm dev` |
+| Build Production | `pnpm build` |
+| Type Checking | `pnpm astro check` |
 
+<<<<<<< HEAD
 **Tech Stack:**
 - Astro 4.x with React integration
 - Tailwind CSS 4.x for styling (via `@theme` in `global.css`)
 - TypeScript
 - Motion (framer-motion) for animations
 - DESIGN.md for design system tokens
+=======
+## Technical Quirks & Constraints
+- **Tailwind v4**: Uses the `@theme` and `@utility` directives in `src/styles/global.css` instead of `tailwind.config.js`. Do not look for a config file.
+- **Base Path**: The site is served from the **root (/)**. Do not hardcode `/rockTicket-web/` in any paths.
+- **Rendering**: Static Site Generation (SSG).
+- **Environment**: Managed via Vercel.
+>>>>>>> dev
 
----
+## Important Patterns
+- **Layouts**: Use `src/layouts/Layout.astro` for global structure (Head, Metadata).
+- **Components**: 
+  - `src/components/islands/`: React components requiring hydration (use `client:*` directives).
+  - `src/components/sections/`: Primary layout sections.
+- **Styles**: Theme defined in `src/styles/global.css`.
 
+<<<<<<< HEAD
 ## Commands
 
 ### Development
@@ -222,3 +244,7 @@ Use path aliases configured in `astro.config.mjs` and `tsconfig.json`:
 3. **Responsive**: Design for mobile-first, use Tailwind breakpoints (default + custom `md: 769px`)
 4. **Keep it simple**: Avoid over-engineering; Astro is designed for simplicity
 5. **Type safety**: Run `npm run astro check` before committing to catch type errors
+=======
+## Deployment
+- Automated via **Vercel** on push to `main`.
+>>>>>>> dev
